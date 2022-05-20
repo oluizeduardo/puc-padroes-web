@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim JS</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="base-container">
+            <section class="container-cadastro">
+                <h2>Inserir Pontos</h2>
+                <div>
+                    <table class="tabela-header">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Aluno</td>
+                                <td colspan="3">Pontuação</td>
+                            </tr>
+                            <tr>
+                                <td>HTML</td>
+                                <td>CSS</td>
+                                <td>Javascript</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="info-nome"/>
+                                </td>
+
+                                <td>
+                                    <input type="number" max="100" min="0" id="nota-html" pattern=""/>
+                                </td>
+
+                                <td>
+                                    <input type="number" max="100" min="0" id="nota-css"/>
+                                </td>
+
+                                <td>
+                                    <input type="number" max="100" min="0"  id="nota-js"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <button id="btnAdicionar">Adicionar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>   
+                    <div style="margin: 0; position: absolute; color: red; margin-top: 0;">
+                        <span class="invisivel" id="mensagem-erro">* Todos os campos devem ser preenchidos com valores válidos.</span>
+                        <span class="invisivel" id="mensagem-nota-negativa">* Os campos de notas não podem ser negativos.</span>
+                    </div>
+                </div>    
+            </section>
+            <section class="container-notas">
+                <h2>Notas</h2>
+                <table id="tabela-notas">
+                    <tbody>
+                        <tr>
+                            <td class="tabela-notas-header">Aluno</td>
+                            <td class="tabela-notas-header">Total</td>
+                            <td class="tabela-notas-header">Média</td>
+                            <td class="tabela-notas-header">Resultado</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="btnSalvar" disabled>Salvar no Browser</button>  
+                <button id="btnExcluir" disabled>Excluir Registros</button>              
+            </section>
+        </div>
+    </main>
+    <script src="form.js"></script>
+    <script src="LocalStorage.js"></script>
+    <script src="ExclusaoRegistros.js"></script>
+</body>
+
+</html>

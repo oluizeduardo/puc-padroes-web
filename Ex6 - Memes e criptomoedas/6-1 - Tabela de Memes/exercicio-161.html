@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercicio 1.6.1</title>
+    <script>
+        function loadMemes() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                    let listmemes = JSON.parse(xmlhttp.response).data.memes;
+
+                    listmemes = listmemes.sort(function(){
+                        return (0.5 - Math.random());
+                    });
+
+                    listmemes.forEach(meme => {
+                        
+                        let table = document.querySelector(".table-memes");
+                        var newTR = document.createElement("tr");
+                        
+                        var tdMeme   = document.createElement("td");
+                        var tdName   = document.createElement("td");
+                        var tdURL    = document.createElement("td");
+                        var tdWidth  = document.createElement("td");
+                        var tdHeight = document.createElement("td");
+                        var link     = document.createElement("a");
+                        var img      = document.createElement("img");
+
+                        img.src = meme.url;
+                        img.width = 120;
+                        img.height = 120;
+
+                        link.href = meme.url;
+                        link.textContent = meme.url;
+                        link.target = '_blank';
+
+                        tdName.textContent = meme.name;
+                        tdWidth.textContent = meme.width;
+                        tdHeight.textContent = meme.height;
+
+                        tdURL.appendChild(link);
+                        tdMeme.appendChild(img);
+                        newTR.appendChild(tdMeme);
+                        newTR.appendChild(tdName);
+                        newTR.appendChild(tdURL);
+                        newTR.appendChild(tdWidth);
+                        newTR.appendChild(tdHeight);
+                        table.appendChild(newTR);
+                    });
+                }
+            }
+            xmlhttp.open("GET", "https://api.imgflip.com/get_memes", true);
+            xmlhttp.send();
+        }
+    </script>
+
+    <style>
+        .table-memes, td, a{
+            border: 1px solid darkgoldenrod;
+        }
+        thead{
+            font-weight: bold;
+            height: 50px;
+            text-align: center;
+            background-color: chocolate;
+        }
+        td{
+            width: 200px;
+            text-align: center;
+        }
+        .section-memes{
+            margin: 0 auto;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body onload="loadMemes()">
+    <div class="section-memes">
+        <table class="table-memes">
+            <thead>
+                <td draggable="true">Meme</td>
+                <td>Nome</td>
+                <td>Link</td>
+                <td>Largura</td>
+                <td>Altura</td>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>
