@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercicio 1.6.1</title>
+    <!--Recarrega a página depois de 300s (5m).-->
+    <meta http-equiv="refresh" content="300">
+
+    <style>
+        .base-container{
+            margin: 100px auto;
+            width: 30%;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .cryptocoin{
+            font-size: 25px;
+            margin-bottom: 30px;
+            height: 80px;
+        }
+        .cryptocoin-name{
+            font-weight: bold;
+        }
+        img{
+            width: 90px;
+            height: 90px;
+        }
+    </style>
+</head>
+
+<body onload="loadCryptocurrencyPrices()">
+    <div class="base-container">
+        <img src="https://thumbs.dreamstime.com/b/%C3%ADcone-da-moeda-de-ouro-do-cryptocurrency-blockchain-bitcoin-102531786.jpg"/>
+        <div class="cryptocoin">
+            R$ <label id="price-bitcoin"></label><br/>
+            <label class="cryptocoin-name">Bitcoin</label>
+        </div>
+
+        <img src="https://cdn.worldvectorlogo.com/logos/litecoin.svg"/>
+        <div class="cryptocoin">
+            R$ <label id="price-litecoin"></label><br/>
+            <label class="cryptocoin-name">Litecoin</label>
+        </div>
+
+        <img src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Ethereum-ETH-icon.png"/>
+        <div class="cryptocoin">
+            R$ <label id="price-euthereum"></label><br/>
+            <label class="cryptocoin-name">Euthereum</label>
+        </div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAYqQJU1HVy2t-fMScN1xSQLxQ3RlhXBveEg&usqp=CAU"/>
+        <div class="cryptocoin">
+            R$ <label id="price-dogecoin"></label><br/>
+            <label class="cryptocoin-name">Dogecoin</label>
+        </div>
+    </div>
+    <script src="LoadCryptoCurrencyPrices.js"></script>
+</body>
+
+</html>
