@@ -4,55 +4,61 @@
     <title>Exercicio 1.6.1</title>
     <script>
         function loadMemes() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
+            const xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = () => {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
                     let listmemes = JSON.parse(xmlhttp.response).data.memes;
 
-                    listmemes = listmemes.sort(function(){
+                    listmemes = listmemes.sort(() => {
                         return (0.5 - Math.random());
                     });
 
-                    listmemes.forEach(meme => {
-                        
-                        let table = document.querySelector(".table-memes");
-                        var newTR = document.createElement("tr");
-                        
-                        var tdMeme   = document.createElement("td");
-                        var tdName   = document.createElement("td");
-                        var tdURL    = document.createElement("td");
-                        var tdWidth  = document.createElement("td");
-                        var tdHeight = document.createElement("td");
-                        var link     = document.createElement("a");
-                        var img      = document.createElement("img");
-
-                        img.src = meme.url;
-                        img.width = 120;
-                        img.height = 120;
-
-                        link.href = meme.url;
-                        link.textContent = meme.url;
-                        link.target = '_blank';
-
-                        tdName.textContent = meme.name;
-                        tdWidth.textContent = meme.width;
-                        tdHeight.textContent = meme.height;
-
-                        tdURL.appendChild(link);
-                        tdMeme.appendChild(img);
-                        newTR.appendChild(tdMeme);
-                        newTR.appendChild(tdName);
-                        newTR.appendChild(tdURL);
-                        newTR.appendChild(tdWidth);
-                        newTR.appendChild(tdHeight);
-                        table.appendChild(newTR);
-                    });
+                    fillTable(listmemes);
                 }
-            }
+            };
             xmlhttp.open("GET", "https://api.imgflip.com/get_memes", true);
             xmlhttp.send();
         }
+
+        const fillTable = list =>{
+            list.forEach(meme => {
+            
+                let table = document.querySelector(".table-memes");
+                const newTR = document.createElement("tr");
+                
+                const tdMeme   = document.createElement("td");
+                const tdName   = document.createElement("td");
+                const tdURL    = document.createElement("td");
+                const tdWidth  = document.createElement("td");
+                const tdHeight = document.createElement("td");
+                const link     = document.createElement("a");
+                const img      = document.createElement("img");
+
+                img.src = meme.url;
+                img.width = 120;
+                img.height = 120;
+
+                link.href = meme.url;
+                link.textContent = meme.url;
+                link.target = '_blank';
+
+                tdName.textContent = meme.name;
+                tdWidth.textContent = meme.width;
+                tdHeight.textContent = meme.height;
+
+                tdURL.appendChild(link);
+                tdMeme.appendChild(img);
+                newTR.appendChild(tdMeme);
+                newTR.appendChild(tdName);
+                newTR.appendChild(tdURL);
+                newTR.appendChild(tdWidth);
+                newTR.appendChild(tdHeight);
+                table.appendChild(newTR);
+            });
+        }
+
     </script>
 
     <style>
