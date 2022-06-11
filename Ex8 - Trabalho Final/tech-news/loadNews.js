@@ -7,7 +7,7 @@ function loadNews(){
     let tags = "";
 
     for(let news of listOfNews){
-        let newElement = "<div class='card' style='width: 18rem;'>"
+        let newElement = "<div class='card' style='width: 22rem;'>"
         newElement += "<img src='"+ news.urlImgCover +"' class='mt-2'>"
         newElement += "<div class='card-body'>"
             newElement += "<small>"+ news.date +"</small>"
