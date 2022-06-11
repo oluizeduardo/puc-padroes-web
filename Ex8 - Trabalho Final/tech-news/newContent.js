@@ -10,7 +10,7 @@ function salvarNoticia(){
             listOfNews = new Array();
         }
 
-        listOfNews.push(createNews(news.title, news.content, news.tags));
+        listOfNews.push(createNews(news.title, news.urlImgCover, news.content, news.tags));
 
         updateLocalStorage(listOfNews);
 
@@ -21,6 +21,7 @@ function salvarNoticia(){
 function getFormContent(){
     const formContent = {
         "title" : document.getElementById("newsTitle").value,
+        "urlImgCover" : document.getElementById("newsImgCover").value,
         "content" : document.getElementById("newsContent").value,
         "tags" : document.getElementById("newsTags").value
     }
@@ -31,11 +32,12 @@ function getLocalStorageInJSON(){
     return JSON.parse(localStorage.getItem("noticias"));
 }
 
-function createNews(title, content, tags){
+function createNews(title, urlImgCover, content, tags){
     const news = {
         "date": new Date().toLocaleString(),
         "cod": new Date().getTime(),
         "title" : title,
+        "urlImgCover" : urlImgCover,
         "content" : content,
         "tags" : tags
     }
