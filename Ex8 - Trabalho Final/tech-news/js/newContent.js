@@ -1,18 +1,13 @@
-function salvarNoticia(){
-
+function saveNews(){
     let news = getFormContent();
 
     if(news.title != "" && news.content != ""){
         
-        let listOfNews = getLocalStorageInJSON();
-
-        if(listOfNews === null || listOfNews.length == 0){
-            listOfNews = new Array();
-        }
+        let listOfNews = LocalStorage.getLocalStorage();
 
         listOfNews.push(createNews(news.title, news.urlImgCover, news.content, news.tags));
 
-        updateLocalStorage(listOfNews);
+        LocalStorage.updateLocalStorage(listOfNews);
 
         alert("Nova notícia salva com sucesso!");
     }
@@ -28,10 +23,6 @@ function getFormContent(){
     return formContent;
 }
 
-function getLocalStorageInJSON(){
-    return JSON.parse(localStorage.getItem("noticias"));
-}
-
 function createNews(title, urlImgCover, content, tags){
     const news = {
         "date": new Date().toLocaleString(),
@@ -42,8 +33,4 @@ function createNews(title, urlImgCover, content, tags){
         "tags" : tags
     }
     return news;
-}
-
-function updateLocalStorage(listOfNews){
-    localStorage.setItem("noticias", JSON.stringify(listOfNews));
 }

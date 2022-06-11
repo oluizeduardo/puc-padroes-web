@@ -1,10 +1,5 @@
 function loadNews(){
-    let listOfNews = getLocalStorageInJSON();
-
-    if(isListEmpty(listOfNews)){
-        listOfNews = new Array();
-    }
-    let tags = "";
+    let listOfNews = LocalStorage.getLocalStorage();
 
     for(let news of listOfNews){
         let newElement = "<div class='card' style='width: 22rem;'>"
@@ -18,14 +13,6 @@ function loadNews(){
 
         $("#containerListNews").append(newElement);
     }
-}
-
-function getLocalStorageInJSON(){
-    return JSON.parse(localStorage.getItem("noticias"));
-}
-
-function isListEmpty(listOfNews){
-    return (listOfNews === null || listOfNews.length == 0);
 }
 
 loadNews();
