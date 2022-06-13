@@ -16,7 +16,6 @@ function listTags(){
         for(let item of arryTags){
             finalArray.push(item);
         }
-        console.log(finalArray);
     }
 
     let elementTag;

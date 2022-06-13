@@ -1,9 +1,17 @@
 function loadNews(){
     let listOfNews = LocalStorage.getLocalStorage();
+    appendListOfNewsOnTheScreen(listOfNews);
+}
 
+function appendListOfNewsOnTheScreen(listOfNews){
     for(let news of listOfNews){
-        let newElement = "<div class='card' style='width: 22rem;'>"
-        newElement += "<img src='"+ news.urlImgCover +"' class='mt-2'>"
+        appendElementOnTheScreen(news);
+    }
+}
+
+function appendElementOnTheScreen(news){
+    let newElement = "<div class='card' style='width: 20rem;'>"
+        newElement += "<img src='"+ news.urlImgCover +"' class='mt-2' height=160px>"
         newElement += "<div class='card-body'>"
             newElement += "<small>"+ news.date +"</small>"
             newElement += "<h5 class='card-title'>"+ news.title +"</h5>"
@@ -11,8 +19,7 @@ function loadNews(){
             newElement += "<a href='#' class='btn btn-primary'>Ver mais &RightArrow;</a>";
         newElement += "</div>";
 
-        $("#containerListNews").append(newElement);
-    }
+    $("#containerListNews").append(newElement);
 }
 
 loadNews();
