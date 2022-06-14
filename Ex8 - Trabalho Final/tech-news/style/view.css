@@ -1,0 +1,16 @@
+#view-news-content{
+    line-height: 2;
+}
+
+#view-card-body{
+    margin: 10px;
+}
+
+#view-news-date, #view-news-title{
+    margin-bottom: 10px;
+}
+
+#view-news-title{
+    font-weight: bold;
+}
+

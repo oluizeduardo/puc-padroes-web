@@ -3,7 +3,7 @@ function loadNews(){
     appendListOfNewsOnTheScreen(listOfNews);
 }
 
-function appendListOfNewsOnTheScreen(listOfNews){
+function appendListOfNewsOnTheScreen(listOfNews){    
     for(let news of listOfNews){
         appendElementOnTheScreen(news);
     }
@@ -16,10 +16,8 @@ function appendElementOnTheScreen(news){
             newElement += "<small>"+ news.date +"</small>"
             newElement += "<h5 class='card-title'>"+ news.title +"</h5>"
             newElement += "<p class='card-text'>"+ news.content.slice(0, 150) +"</p>"
-            newElement += "<a href='#' class='btn btn-primary'>Ver mais &RightArrow;</a>";
+            newElement += "<a href='view.html?cod="+ news.cod +"' class='btn btn-primary'>Ver mais &RightArrow;</a>";
         newElement += "</div>";
 
     $("#containerListNews").append(newElement);
 }
-
-loadNews();

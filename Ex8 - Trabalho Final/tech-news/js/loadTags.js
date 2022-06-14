@@ -1,4 +1,4 @@
-function listTags(){
+function loadTags(){
     let listOfNews = LocalStorage.getLocalStorage();
     let tagsStr = "";
 
@@ -20,9 +20,9 @@ function listTags(){
 
     let elementTag;
     for(let item of finalArray){
-        elementTag = "<li><a href='#'>"+ item +"</li>";
+        elementTag = "<li><a onclick='filterNewsByTag(\""+item.trim()+"\")' href='#'>"+ item +"</a></li>";
         $("#tags").append(elementTag);
     }
 }
 
-listTags();
+loadTags();
