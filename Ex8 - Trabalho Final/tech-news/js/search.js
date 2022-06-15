@@ -13,7 +13,7 @@ $(function(){
 function filterNewsByTerm(term){
     let listOfNews = LocalStorage.getLocalStorage();
     let found = false;
-    
+
     clearScreen();
 
     for(let news of listOfNews){
@@ -31,13 +31,14 @@ function filterNewsByTag(tag){
     let listOfNews = LocalStorage.getLocalStorage();
     let found = false;
 
+    clearScreen();
+
     for(let news of listOfNews){
         if(news.tags === undefined || news.tags == null) 
             continue;
         
         if(news.tags.indexOf(tag) > -1){
-            found = true;
-            clearScreen();
+            found = true;            
             appendElementOnTheScreen(news);
         }
     }
