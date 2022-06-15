@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar notícia | Tech News</title>
+    <title>Tech News | PUC Minas</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -34,36 +34,32 @@
         </div>
     </header>
 
-    <div class="container mb-5">
-        <form>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="newsTitle" placeholder="Título" required>
-                <label for="news-title">Título</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="newsImgCover" placeholder="Imagem de capa" required>
-                <label for="newsImgCover">URL imagem de capa</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="newsTags" placeholder="Tags" required>
-                <label for="newsTags">Tags</label>
-            </div>
-
-            <div class="form-group mb-3">
-                <textarea class="form-control" id="newsContent" rows="5" placeholder="Conteúdo" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary mb-3" onclick="saveNews()">Adicionar notícia</button>
-        </form>
-    </div>
-
-    <footer class="py-5 bg-dark" style="position: absolute;width: 100%;">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copywrite &copy; Portal Tech News - <script>let d=new Date(); document.write(d.getFullYear());</script></p>
+    <main>
+        <div class="container mb-5">
+            <form>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="newsTitle" placeholder="Título" required>
+                    <label for="news-title">Título</label>
+                </div>
+    
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="newsImgCover" placeholder="Imagem de capa" required>
+                    <label for="newsImgCover">URL imagem de capa</label>
+                </div>
+    
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="newsTags" placeholder="Tags" required>
+                    <label for="newsTags">Tags</label>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <textarea class="form-control" id="newsContent" rows="5" placeholder="Conteúdo" required></textarea>
+                </div>
+    
+                <button type="submit" class="btn btn-primary mb-3" onclick="saveNews()">Adicionar notícia</button>
+            </form>
         </div>
-    </footer>
+    </main>
 
     <script src="js/LocalStorage.js"></script>
     <script src="js/newContent.js"></script>

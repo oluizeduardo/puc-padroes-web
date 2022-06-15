@@ -48,7 +48,6 @@ function filterNewsByTag(tag){
 }
 
 function showNothingFoundMessage(){
-    clearScreen();
     $("#containerListNews").html('Nenhuma notícia encontrada com esse termo!');
 }
 
