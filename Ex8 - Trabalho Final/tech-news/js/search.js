@@ -13,11 +13,12 @@ $(function(){
 function filterNewsByTerm(term){
     let listOfNews = LocalStorage.getLocalStorage();
     let found = false;
+    
+    clearScreen();
 
     for(let news of listOfNews){
         if(news.title.toLowerCase().indexOf(term) > -1){
             found = true;
-            clearScreen();
             appendElementOnTheScreen(news);
         }
     }
