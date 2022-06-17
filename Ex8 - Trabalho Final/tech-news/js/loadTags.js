@@ -14,11 +14,11 @@ function loadTags(){
 
 function extractSetOfTagsSeparatedByComma(listOfNews){
     let tagsStr = "";
-    for(let news of listOfNews){
+    listOfNews.forEach((news) => {
         if(news.tags != null || news.tags !== undefined){
             tagsStr = tagsStr + "," + news.tags;
         }
-    }
+    });
     return tagsStr;
 }
 
@@ -28,25 +28,25 @@ function loadListOfTags(tagsStr){
         
         let arryTags = tagsStr.split(",");
 
-        for(let tag of arryTags){
+        arryTags.forEach((tag) => {
             if(!isThereTagOnTheList(listOfTags, tag)){
                 listOfTags.push(tag);
-            }                
-        }
+            }
+        });
     }
     return listOfTags;
 }
 
 function isThereTagOnTheList(listOfTags, tag){
-    return listOfTags.indexOf(tag) > 0 ? true : false;
+    return listOfTags.indexOf(tag) > -1 ? true : false;
 }
 
 function appendTagsOnTheScreen(listOfTags){
     let element;
-    for(let tag of listOfTags){
+    listOfTags.forEach((tag)=>{
         element = "<li><a onclick='filterNewsByTag(\""+tag.trim()+"\")' href='#'>"+ tag +"</a></li>";
         $("#tags").append(element);
-    }
+    });
 }
 
 function showAnyTagsFound(){

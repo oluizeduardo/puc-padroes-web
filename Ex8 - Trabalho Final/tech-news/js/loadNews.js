@@ -11,10 +11,10 @@ function loadNews(){
     }
 }
 
-function appendListOfNewsOnTheScreen(listOfNews){    
-    for(let news of listOfNews){
+function appendListOfNewsOnTheScreen(listOfNews){
+    listOfNews.forEach((news) => {
         appendElementOnTheScreen(news);
-    }
+    });
 }
 
 function appendElementOnTheScreen(news){

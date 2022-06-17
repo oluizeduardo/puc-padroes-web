@@ -1,7 +1,7 @@
 function loadContentView(cod){                
     let listOfNews = LocalStorage.getLocalStorage();
 
-    for(let news of listOfNews){
+    listOfNews.forEach((news) => {
         if(news.cod == cod){
             $("#articleTitle").html(news.title);
 
@@ -15,5 +15,5 @@ function loadContentView(cod){
                 newElement += "</div>";            
             $("#result").html(newElement);
         }
-    }
+    });
 }

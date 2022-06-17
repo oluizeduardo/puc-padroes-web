@@ -16,12 +16,12 @@ function filterNewsByTerm(term){
 
     clearScreen();
 
-    for(let news of listOfNews){
+    listOfNews.forEach((news) => {
         if(news.title.toLowerCase().indexOf(term) > -1){
             found = true;
             appendElementOnTheScreen(news);
         }
-    }
+    });
     if(!found){
         showNothingFoundMessage();
     }
@@ -33,15 +33,12 @@ function filterNewsByTag(tag){
 
     clearScreen();
 
-    for(let news of listOfNews){
-        if(news.tags === undefined || news.tags == null) 
-            continue;
-        
+    listOfNews.forEach((news) => {        
         if(news.tags.indexOf(tag) > -1){
             found = true;            
             appendElementOnTheScreen(news);
         }
-    }
+    });
     if(!found){
         showNothingFoundMessage();
     }
