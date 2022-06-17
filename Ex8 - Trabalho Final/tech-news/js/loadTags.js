@@ -28,11 +28,17 @@ function loadListOfTags(tagsStr){
         
         let arryTags = tagsStr.split(",");
 
-        for(let item of arryTags){
-            listOfTags.push(item);
+        for(let tag of arryTags){
+            if(!isThereTagOnTheList(listOfTags, tag)){
+                listOfTags.push(tag);
+            }                
         }
     }
     return listOfTags;
+}
+
+function isThereTagOnTheList(listOfTags, tag){
+    return listOfTags.indexOf(tag) > 0 ? true : false;
 }
 
 function appendTagsOnTheScreen(listOfTags){

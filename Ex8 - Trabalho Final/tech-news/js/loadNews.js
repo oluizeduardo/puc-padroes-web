@@ -1,14 +1,14 @@
 function loadNews(){
     let listOfNews = LocalStorage.getLocalStorage();
     
-    if(listOfNews.length < 3){
+    /*if(listOfNews.length < 3){
         adjustFooterPosition(); 
-    }    
+    }*/    
     if(listOfNews.length > 0){
         appendListOfNewsOnTheScreen(listOfNews);
     }else{
         showAnyNewsFound();    
-    }    
+    }
 }
 
 function appendListOfNewsOnTheScreen(listOfNews){    
@@ -34,6 +34,6 @@ function showAnyNewsFound(){
     $("#containerListNews").html('Nenhuma notícia encontrada!');
 }
 
-function adjustFooterPosition(){
+/*function adjustFooterPosition(){
     $("#main-container").addClass('bottom-footer');
-}
+}*/
